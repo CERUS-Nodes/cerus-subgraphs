@@ -1,0 +1,93 @@
+type Claim @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  amountPrimary: BigInt! # uint256
+  amountSecondary: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Deposit @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type EmergencyWithdraw @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  tokenIds: [BigInt!]! # uint256[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SyncedReward @entity(immutable: true) {
+  id: Bytes!
+  amountPrimary: BigInt! # uint256
+  amountSecondary: BigInt! # uint256
+  timeInSeconds: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Withdraw @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type User @entity {
+  id: ID!
+  address: Bytes!
+  deposits: BigInt!
+  withdraws: BigInt!
+  rewards: BigInt!
+  tokenBalance: BigInt!
+  userTokens: [UserToken!]!
+  totalRewardPrimary: BigInt!
+  totalRewardSecondary: BigInt!
+  lastRewardPrimary: BigInt!
+  lastRewardSecondary: BigInt!
+}
+
+type UserToken @entity {
+  id: ID!
+  user: Bytes!
+  token: Token!
+  timesDepositedUser: Int!
+  timesRewardedUser: Int!
+  timesWithdrawnUser: Int!
+  totalPrimaryRewardUser: BigInt!
+  totalSecondaryRewardUser: BigInt!
+  lastRewardPrimaryUser: BigInt!
+  lastRewardSecondaryUser: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  totalRewardPrimary: BigInt!
+  totalRewardSecondary: BigInt!
+  lastRewardPrimary: BigInt!
+  lastRewardSecondary: BigInt!
+  timesRewarded: Int!
+  timesDeposited: Int!
+  timesWithdrawn: Int!
+}
