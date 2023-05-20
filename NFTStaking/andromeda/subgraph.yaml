@@ -17,7 +17,6 @@ dataSources:
         - Claim
         - Deposit
         - EmergencyWithdraw
-        - OwnershipTransferred
         - SyncedReward
         - Withdraw
       abis:
@@ -30,8 +29,6 @@ dataSources:
           handler: handleDeposit
         - event: EmergencyWithdraw(indexed address,uint256[])
           handler: handleEmergencyWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: SyncedReward(uint256,uint256,uint256)
           handler: handleSyncedReward
         - event: Withdraw(indexed address,uint256)

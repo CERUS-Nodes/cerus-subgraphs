@@ -80,7 +80,7 @@ Open graph index node playground and input flowing graphl request
 
 ```graphql
 {
-  indexingStatusForCurrentVersion(subgraphName: "metisio/approvals") {
+  indexingStatusForCurrentVersion(subgraphName: "cerusnodes/cerus-nft-staking") {
     synced
     health
     fatalError {

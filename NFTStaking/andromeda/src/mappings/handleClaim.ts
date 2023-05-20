@@ -1,27 +1,7 @@
 import { json, BigInt, Bytes, Address } from "@graphprotocol/graph-ts";
-import {
-  // Collection,
-  Deposit,
-  Withdraw,
-  // RewardAdded,
-  // UserReward,
-  Claim,
-  // RetrieveToken,
-  User,
-  // UserCollection,
-  Token,
-  UserToken,
-} from "../../generated/schema";
+import { Claim, User, Token, UserToken } from "../../generated/schema";
 
-import {
-  // CollectionAdded as CollectionAddedEvent,
-  Deposit as DepositEvent,
-  Withdraw as WithdrawEvent,
-  // RewardAdded as RewardAddedEvent,
-  // Reward as RewardEvent,
-  Claim as ClaimEvent,
-  // RetrieveToken as RetrieveTokenEvent,
-} from "../../generated/Contract/CERUSNFTStaking";
+import { Claim as ClaimEvent } from "../../generated/Contract/CERUSNFTStaking";
 
 // Handlers for Claim event
 
@@ -74,7 +54,7 @@ export function handleClaim(event: ClaimEvent): void {
           token.timesRewarded = token.timesRewarded + 1;
           userToken.timesRewardedUser = userToken.timesRewardedUser + 1;
         }
-        
+
         if (event.params.amountPrimary != BigInt.fromI32(0)) {
           token.totalRewardPrimary = token.totalRewardPrimary.plus(amountPrimary);
           token.lastRewardPrimary = amountPrimary;

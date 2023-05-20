@@ -1,11 +1,7 @@
 import { json, BigInt, Bytes, Address } from "@graphprotocol/graph-ts";
 import { Deposit, Withdraw, Claim, User, Token, UserToken } from "../../generated/schema";
 
-import {
-  Deposit as DepositEvent,
-  Withdraw as WithdrawEvent,
-  Claim as ClaimEvent,
-} from "../../generated/Contract/CERUSNFTStaking";
+import { Withdraw as WithdrawEvent } from "../../generated/Contract/CERUSNFTStaking";
 
 export function handleWithdraw(event: WithdrawEvent): void {
   // add withdraw
@@ -44,7 +40,7 @@ export function handleWithdraw(event: WithdrawEvent): void {
 
     // Update user's withdraws count
     user.withdraws = user.withdraws.plus(BigInt.fromI32(1));
-    
+
     // user tokens array
     // Update user collection tokenIds
     let tokenIds = user.userTokens;

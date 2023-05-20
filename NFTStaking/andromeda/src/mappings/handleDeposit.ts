@@ -1,27 +1,6 @@
 import { json, BigInt, Bytes, Address } from "@graphprotocol/graph-ts";
-import {
-  //   Collection,
-  Deposit,
-  Withdraw,
-  //   RewardAdded,
-  //   UserReward,
-  Claim,
-  //   RetrieveToken,
-  User,
-  //   UserCollection,
-  Token,
-  UserToken,
-} from "../../generated/schema";
-
-import {
-  //   CollectionAdded as CollectionAddedEvent,
-  Deposit as DepositEvent,
-  Withdraw as WithdrawEvent,
-  //   RewardAdded as RewardAddedEvent,
-  //   Reward as RewardEvent,
-  Claim as ClaimEvent,
-  //   RetrieveToken as RetrieveTokenEvent,
-} from "../../generated/Contract/CERUSNFTStaking";
+import { Deposit, User, Token, UserToken } from "../../generated/schema";
+import { Deposit as DepositEvent } from "../../generated/Contract/CERUSNFTStaking";
 
 // HANDLE DEPOSIT
 export function handleDeposit(event: DepositEvent): void {
@@ -91,7 +70,7 @@ export function handleDeposit(event: DepositEvent): void {
   }
 
   // Update tokenIds in UserCollection
-  let updatedTokenIds :string[] = user.userTokens;
+  let updatedTokenIds: string[] = user.userTokens;
   updatedTokenIds.push(tokenEntityId);
   user.userTokens = updatedTokenIds;
 
