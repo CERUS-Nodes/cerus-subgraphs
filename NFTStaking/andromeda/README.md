@@ -1,6 +1,8 @@
 # CERUS NFT Reward Distribution Contract Subgraph
 
-__NOTICE__
+Based on [https://github.com/ericlee42/metisio-approvals-subgraph](https://github.com/ericlee42/metisio-approvals-subgraph)
+
+**NOTICE**
 This is for Metis Andromeda Mainet!
 
 ## Start graph-node
@@ -13,6 +15,7 @@ ipfs webui: http://127.0.0.1:5001
 graph index node playground: http://127.0.0.1:8030/graphql/playground
 
 ## Generate types
+
 ```
 yarn codegen
 ```
