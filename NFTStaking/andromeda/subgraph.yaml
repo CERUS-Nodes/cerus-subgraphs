@@ -6,9 +6,9 @@ dataSources:
     name: Contract
     network: andromeda
     source:
-      address: "0x06e81AAbab02b0b53687C68c200b1c594D681Ae3"
+      address: "0x6391e05A2A3d25b9181865755b798fa94451aa49"
       abi: CERUSNFTStaking
-      startBlock: 5733413
+      startBlock: 5900397
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
